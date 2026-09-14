@@ -28,3 +28,5 @@ guide.md 是唯一正文稿；源编号对应 evidence，真实事实不得只�
 state.json 记录 stage 状态（pending/in_progress/complete）、每个阶段输入文件的修改时间或哈希、失败原因、未决项、qa 检查及产物路径。仅视觉修改复用正文；修改出行日期或路线后复核受影响的证据和计划。
 
 本契约是最小交接格式，可加字段。缺少具体日期允许相对日程；不得因为契约字段缺失要求用户回答对当前任务无关的问题。
+
+来源可增加 `content_origin`（user/official/platform_ai/author_ai_disclosed/unknown）和 `access_note`（实际读取章节、登录阻断、签名链接限制）。这些字段不改变原有 access 定义；只读到部分正文时仍为 partial。

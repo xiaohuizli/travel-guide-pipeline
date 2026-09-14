@@ -16,7 +16,7 @@
 | 小红书 | [xhs-explore](https://github.com/autoclaw-cc/xiaohongshu-skills/blob/main/skills/xhs-explore/SKILL.md) | 项目需已登录浏览器与配套运行时。只用搜索、详情、评论读取；先检查当前环境是否真的有可调用工具。 |
 | 马蜂窝与通用网页 | [agent-browser](https://skills.sh/vercel-labs/agent-browser/agent-browser) | 需要 CLI/浏览器；无专用接口时用于可访问网页。当前环境已有浏览器工具可直接采用。 |
 | 同程 | [tc-chengxin](https://github.com/infometa/workbuddyskills/blob/main/connectors/tc-chengxin/skills/SKILL.md) | 此版本依赖 WorkBuddy CLI、令牌与展示契约，不能按普通 Codex Skill 假定开箱即用。缺运行环境时用可访问网页查询并标明缺口。 |
-| 携程 | [tripai-skill](https://github.com/trips-ai/tripai-skill) | 文档称使用携程问道接口、Key 可选；接口、限流与返回字段需现场验证。只查资料，不提交预订。 |
+| 携程 | [tripai-skill](https://github.com/trips-ai/tripai-skill) | 当前上游文档要求携程问道 API Key；缺 Key 时采用携程公开攻略网页，不能声称 API 已接通。接口、限流与返回字段需现场验证。只查资料，不提交预订。 |
 
 这是选型索引，不是已安装或可用性保证。只有当前任务确实需要时才读取外部适配器说明；不自动下载执行仓库或安装依赖。现有搜索/浏览器/连接器足以完成任务时直接使用。浏览器操作前读取对应可用工具/技能说明。
 
@@ -27,3 +27,7 @@
 3. 观点归属于作者，官方规则归属于公告。去重转载；两条转载不是两个独立来源。
 4. 对影响执行的价格、开放、预约与换乘，尽量用最新原始来源复核。冲突未解决时并列来源、解释适用时间，保留 unknown，不多数表决。
 5. 输出 evidence.json，使用数据契约中的来源、事实与媒体记录。把“未找到”与“已证实不存在”严格分开。
+
+## 运行配置
+
+先读 [接入与依赖](runtime.md)。默认使用当前可用浏览器读取公开页面或用户已登录会话；API 是可选增强。记录 `content_origin`（user/official/platform_ai/author_ai_disclosed/unknown）与 `access_note`。平台 AI 总结和作者声明 AI 生成的内容只能作为线索；未经原始来源复核不得标 verified。搜索页“起价”不能作为成人门票报价。

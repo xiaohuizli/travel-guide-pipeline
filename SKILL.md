@@ -15,6 +15,8 @@ description: 将多平台旅行资料采集、行程核验与攻略书写串成�
 4. 在当前任务的 `work/travel-guide/` 保存中间文件；最终文件放当前任务指定的 outputs 目录。不得把个人行程、原始网页、凭据写入技能目录。已有多份旅行任务时使用各自子目录。
 5. 按 [数据契约](data-contract.md) 建立或读取 `brief.json`、`evidence.json`、`plan.json`、`guide.md`、`state.json`。state 记录每阶段状态、输入版本、未决事项及 QA 结果；有真实文件和证据才标记完成。
 
+开始执行时读取 [接入与依赖](runtime.md)，运行 `python3 <skill-dir>/doctor.py` 检查本机依赖；浏览器登录和实际资料可读性须另行现场验证。
+
 ## 三个阶段
 
 - **采集**：读 [采集规则与适配器](collect.md)。保留来源时间和价格口径，明确访问失败与未核实事项。完成 evidence.json；不将搜索摘要冒充平台完整数据。

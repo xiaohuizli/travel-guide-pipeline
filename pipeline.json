@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "collection": {
+    "mode": "browser-first",
+    "sites": {
+      "xiaohongshu": "https://www.xiaohongshu.com",
+      "mafengwo": "https://www.mafengwo.cn",
+      "ctrip": "https://you.ctrip.com/",
+      "tongcheng": "https://www.ly.com/scenery/"
+    },
+    "optional_api_env": [
+      "TRIPAI_API_KEY"
+    ]
+  },
+  "dependencies": [
+    {
+      "name": "frontend-design",
+      "repository": "anthropics/skills",
+      "ref": "34040c9c568585f6929bedeaad110ad08f079624",
+      "path": "skills/frontend-design"
+    },
+    {
+      "name": "content-research-writer",
+      "repository": "composiohq/awesome-claude-skills",
+      "ref": "be2a406907dbc61b73e6827ded415c96139d13a2",
+      "path": "content-research-writer"
+    },
+    {
+      "name": "travel-planner",
+      "repository": "ailabs-393/ai-labs-claude-skills",
+      "ref": "1a12bc7aadcc7b211f77a7455db454b77a71f827",
+      "path": "packages/skills/travel-planner"
+    }
+  ],
+  "stages": [
+    "collect",
+    "plan",
+    "write",
+    "html",
+    "qa"
+  ]
+}
