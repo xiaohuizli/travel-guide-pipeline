@@ -1,0 +1,4 @@
+interface:
+  display_name: "旅行攻略制作链路"
+  short_description: "串联多平台资料采集、行程核验与攻略书写，生成离线可读可打印的本地 HTML"
+  default_prompt: "使用 $travel-guide-pipeline 按我的出行要求采集资料、整理攻略并生成本地 HTML。"
