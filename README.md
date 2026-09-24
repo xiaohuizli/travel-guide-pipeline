@@ -26,19 +26,21 @@ npx skills add https://github.com/xiaohuizli/travel-guide-pipeline --skill trave
 
 ## 平台与运行环境
 
-技能本身不包含平台账户、API Key、采集服务或第三方 CLI。小红书、同程、携程适配器为可选方案，详见 collect.md；没有可用适配器时采用已有搜索和浏览器工具，并明确访问缺口。马蜂窝采用可访问网页采集。
+技能本身不包含平台账户、API Key、采集服务或第三方 CLI。小红书、同程、携程适配器为可选方案，详见 [collect.md](collect.md)；没有可用适配器时采用已有搜索和浏览器工具，并明确访问缺口。马蜂窝采用可访问网页采集。
 
-`check_plan.py` 仅依赖 Python 3 标准库。资料查询需要网络；HTML 验收需要可用浏览器工具。
+这条链路按需借鉴 `travel-planner` 的行程规划、`content-research-writer` 的证据组织和 `frontend-design` 的单文件页面设计；浏览器或 Playwright 用于实际页面验收。它们是可选辅助技能，不会将上游技能内容复制进本仓库，缺失时按本技能的阶段规则继续执行。来源与固定版本见 [pipeline.json](pipeline.json)。
+
+`check_plan.py` 和 `doctor.py` 仅依赖 Python 3 标准库。资料查询需要网络；HTML 验收需要可用浏览器工具。可选的 `tripai_query.py` 只做携程 API 查询，凭据从环境变量或 macOS 钥匙串读取，不写入仓库。
 
 ## 数据与检查
 
-数据约定见 data-contract.md。中间文件保存在当前任务工作区，个人行程与凭据不写入技能目录。
+数据约定见 [data-contract.md](data-contract.md)。中间文件保存在当前任务工作区，个人行程与凭据不写入技能目录。
 
 ```sh
 python3 check_plan.py /path/to/travel-work-dir
 ```
 
-脚本检查部分结构、日期、预算和来源引用一致性，不能替代事实核实、路线可行性判断或 HTML 视觉检查。已验证9类正常/异常输入；第三方平台接口未随技能发布进行实测。
+脚本检查部分结构、日期、预算和来源引用一致性，不能替代事实核实、路线可行性判断或 HTML 视觉检查。第三方平台接口未随技能发布进行实测。
 
 ## 范围
 
@@ -46,4 +48,4 @@ python3 check_plan.py /path/to/travel-work-dir
 
 ## 浏览器采集与依赖配置
 
-默认使用可用浏览器采集小红书、马蜂窝、携程、同程，详情见 [runtime.md](runtime.md)。编写和 HTML 可选依赖及固定版本见 [pipeline.json](pipeline.json)。执行 `python3 doctor.py` 检查本地依赖；网页登录、API 调用及 HTML 渲染需现场验证。携程 API Key 必需且只存环境变量或 Keychain。
+默认使用可用浏览器采集小红书、马蜂窝、携程、同程，详情见 [runtime.md](runtime.md)。执行 `python3 doctor.py` 检查本地依赖；网页登录、API 调用及 HTML 渲染需现场验证。仅在使用携程 API 适配器时才需要 API Key，凭据只存环境变量或 Keychain。
